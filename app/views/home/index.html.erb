@@ -2,7 +2,7 @@
 <h3>Boas vindas ao sistema de locação de apartamentos</h3>
 
 <% @places.each do |p| %>
-  <%=p.title%>
+  <%=link_to p.title, "home/details/" %>
   <%=p.description%>
   Quartos: <%=p.rooms%>
 <% end %>
