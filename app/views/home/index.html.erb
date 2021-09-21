@@ -1,6 +1,9 @@
 <h1>Flats</h1>
 <h3>Boas vindas ao sistema de locação de apartamentos</h3>
 
+<% if @places.empty? then %>
+  Nenhum imóvel disponível
+<% end %>
 <% @places.each do |p| %>
   <%=link_to p.title, "home/details/" %>
   <%=p.description%>

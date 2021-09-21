@@ -30,4 +30,13 @@ describe 'Visitor visit homepage' do
     expect(page).to have_text("Diária: R$100")
 
   end
+
+
+  it 'or view "no place available" warning if no place available' do
+
+    visit root_path
+
+    expect(page).to have_text("Nenhum imóvel disponível")
+
+  end
 end
