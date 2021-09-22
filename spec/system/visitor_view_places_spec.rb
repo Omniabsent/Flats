@@ -39,4 +39,16 @@ describe 'Visitor visit homepage' do
     expect(page).to have_text("Nenhum imóvel disponível")
 
   end
+
+  it 'and return to home' do
+    Place.create({title: "Casa em Curitiba", description: "Casa com vaga em garagem", rooms: 2, bathrooms: 1, pets: true, parking_slot: true, rent: "100"})
+
+    visit root_path
+    click_on "Casa em Curitiba"
+    click_on "Voltar"
+
+    expect(current_path).to eq root_path
+  end
+
+
 end
