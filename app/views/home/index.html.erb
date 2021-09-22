@@ -5,7 +5,7 @@
   Nenhum imóvel disponível
 <% end %>
 <% @places.each do |p| %>
-  <%=link_to p.title, "home/details/" %>
+  <%=link_to(p.title, detail_path(p.id)) %>
   <%=p.description%>
   Quartos: <%=p.rooms%>
 <% end %>

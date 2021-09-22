@@ -1,4 +1,4 @@
-<% @places.each do |p| %>
+<% p = @places %>
   <%=p.title%>
   <%=p.description%>
   Quartos: <%=p.rooms%>
@@ -6,4 +6,3 @@
   Aceita pets: <%= if p.pets == true then "Sim" else "Não" end %>
   Estacionamento: <%= if p.parking_slot == true then "Sim" else "Não" end%>
   Diária: R$<%=p.rent%>
-<% end %>
