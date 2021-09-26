@@ -2,8 +2,8 @@ require 'rails_helper'
 
 describe 'Visitor visit homepage' do
   it  'and view places' do
-    Place.create({title: "Casa em Curitiba", description: "Casa com vaga em garagem", rooms: 2})
-    Place.create({title: "Kitnet em SP", description: "Kitnet mobiliada", rooms: 1})
+    Place.create({title: "Casa em Curitiba", description: "Casa com vaga em garagem", rooms: 2, bathrooms: 1, pets: true, parking_slot: true, rent: "100" })
+    Place.create({title: "Kitnet em SP", description: "Kitnet mobiliada", rooms: 1,  bathrooms: 1, pets: true, parking_slot: true, rent: "100"})
 
     visit root_path
 

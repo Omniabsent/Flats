@@ -9,7 +9,11 @@ class PlacesController < ApplicationController
   end
 
   def create
-    pl = Place.create(params.require(:place).permit(:title, :description, :rooms, :bathrooms, :rent, :pets, :parking_slot))
-    redirect_to place_path(pl.id)
+    @places = Place.create(params.require(:place).permit(:title, :description, :rooms, :bathrooms, :rent, :pets, :parking_slot))
+    if @places.persisted? then
+      redirect_to place_path(@places.id)
+    else
+      render :new
+    end
   end
 end

@@ -1,5 +1,12 @@
 <h1>Cadastro de Imóvel</h1>
 
+<% if @places.errors.any? then %>
+  <% @places.errors.full_messages.each do |error| %>
+    <%= error %>
+  <% end %>
+<% end %>
+
+
 <%= form_with(model: Place.new) do |f| %>
   <div>
     <%= f.label :title, 'Título' %>

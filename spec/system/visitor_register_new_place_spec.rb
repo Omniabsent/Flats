@@ -23,4 +23,17 @@ describe 'Visitor register place' do
     expect(page).to have_content('Diária: R$200')
 
   end
+
+  it 'and must fill all fields' do
+    visit root_path
+    click_on 'Cadastrar imóvel'
+    click_on 'Enviar'
+
+    expect(page).to have_content('não pode ficar em branco')
+    #expect(page).to have_content('Título não pode ficar em branco')
+    #expect(page).to have_content('Descrição não pode ficar em branco')
+    #expect(page).to have_content('Quartos não pode ficar em branco')
+    #expect(page).to have_content('Banheiros não pode ficar em branco')
+    #expect(page).to have_content('Diária não pode ficar em branco')
+  end
 end

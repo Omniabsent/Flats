@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   root to: 'home#index'
   #get "details/details" => "details#details"
   resources :places, only: [:show, :new, :create]
+  resources :type, only: [:show, :new, :create]
 end
