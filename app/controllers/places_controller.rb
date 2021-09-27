@@ -16,4 +16,10 @@ class PlacesController < ApplicationController
       render :new
     end
   end
+
+  def destroy
+    id = params[:id]
+    @places = Place.destroy(id)
+    redirect_to root_path
+  end
 end
