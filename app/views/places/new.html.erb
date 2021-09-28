@@ -8,7 +8,10 @@
 
 
 <%= form_with(model: Place.new) do |f| %>
-
+  <div>
+    <%= f.label :place_type_id, "Tipo" %>
+    <%= f.collection_select :place_type_id, PlaceType.all, :id, :name %>
+  </div>
   <div>
     <%= f.label :title, 'Título' %>
     <%= f.text_field :title %>

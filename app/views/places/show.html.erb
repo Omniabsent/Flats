@@ -6,6 +6,7 @@
   Aceita pets: <%= if p.pets == true then "Sim" else "Não" end %>
   Estacionamento: <%= if p.parking_slot == true then "Sim" else "Não" end%>
   Diária: R$<%=p.rent%>
+  Tipo: <%=p.place_type.name%>
 
 <%= link_to 'Apagar', place_path(@places), method: :delete%>
 <%= link_to "Voltar", root_path %>
