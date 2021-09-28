@@ -3,7 +3,7 @@ require 'rails_helper'
 describe 'Visitor register place' do
   it 'successfully' do
 
-    Type.create(type:'Casa')
+    PlaceType.create(name:'Casa')
 
     visit root_path
     click_on 'Cadastrar imóvel'
@@ -12,7 +12,7 @@ describe 'Visitor register place' do
     fill_in 'Quartos', with: '3'
     fill_in 'Banheiros', with: '2'
     fill_in 'Diária', with: 200
-    select 'Casa', from: "type"
+    select 'Casa', from: "Tipo"
     check 'Aceita pets'
     check 'Tem garagem'
     click_on 'Enviar'

@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_27_142543) do
+ActiveRecord::Schema.define(version: 2021_09_28_003642) do
+
+  create_table "place_types", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "places", force: :cascade do |t|
     t.string "title"
@@ -22,15 +28,9 @@ ActiveRecord::Schema.define(version: 2021_09_27_142543) do
     t.boolean "pets"
     t.boolean "parking_slot"
     t.integer "rent"
-    t.integer "type_id", null: false
-    t.index ["type_id"], name: "index_places_on_type_id"
+    t.integer "place_type_id", null: false
+    t.index ["place_type_id"], name: "index_places_on_place_type_id"
   end
 
-  create_table "types", force: :cascade do |t|
-    t.string "type"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  add_foreign_key "places", "types"
+  add_foreign_key "places", "place_types"
 end
