@@ -2,8 +2,9 @@ require 'rails_helper'
 
 describe 'Visitor visit homepage' do
   it  'and view places' do
-    Place.create({title: "Casa em Curitiba", description: "Casa com vaga em garagem", rooms: 2, bathrooms: 1, pets: true, parking_slot: true, rent: "100" })
-    Place.create({title: "Kitnet em SP", description: "Kitnet mobiliada", rooms: 1,  bathrooms: 1, pets: true, parking_slot: true, rent: "100"})
+    PlaceType.create(name:'Casa')
+    Place.create({title: "Casa em Curitiba", description: "Casa com vaga em garagem", rooms: 2, bathrooms: 1, pets: true, parking_slot: true, rent: "100", place_type_id: 1 })
+    Place.create({title: "Kitnet em SP", description: "Kitnet mobiliada", rooms: 1,  bathrooms: 1, pets: true, parking_slot: true, rent: "100", place_type_id: 1 })
 
     visit root_path
 
@@ -16,7 +17,8 @@ describe 'Visitor visit homepage' do
   end
 
   it 'and view place details' do
-    Place.create({title: "Casa em Curitiba", description: "Casa com vaga em garagem", rooms: 2, bathrooms: 1, pets: true, parking_slot: true, rent: "100"})
+    PlaceType.create(name:'Casa')
+    Place.create({title: "Casa em Curitiba", description: "Casa com vaga em garagem", rooms: 2, bathrooms: 1, pets: true, parking_slot: true, rent: "100", place_type_id: 1 })
 
     visit root_path
     click_on "Casa em Curitiba"
@@ -41,8 +43,9 @@ describe 'Visitor visit homepage' do
   end
 
   it 'and return to home' do
-    Place.create({title: "Casa em Curitiba", description: "Casa com vaga em garagem", rooms: 2, bathrooms: 1, pets: true, parking_slot: true, rent: "100"})
-
+    PlaceType.create(name:'Casa')
+    Place.create({title: "Casa em Curitiba", description: "Casa com vaga em garagem", rooms: 2, bathrooms: 1, pets: true, parking_slot: true, rent: "100", place_type_id: 1 })
+    
     visit root_path
     click_on "Casa em Curitiba"
     click_on "Voltar"
