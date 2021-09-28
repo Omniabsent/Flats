@@ -1,4 +1,4 @@
 class Place < ApplicationRecord
-  has_many :place_type
+  belongs_to :place_type
   attr_accessor :title, :description, :rooms
 end

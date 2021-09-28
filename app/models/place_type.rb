@@ -1,3 +1,3 @@
 class PlaceType < ApplicationRecord
-  belongs_to :types
+  has_many :place
 end
