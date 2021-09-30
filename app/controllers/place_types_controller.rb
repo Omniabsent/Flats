@@ -10,6 +10,10 @@ class PlaceTypesController < ApplicationController
 
   def create
     @place_type = PlaceType.create(params.require(:place_type).permit(:name))
-    redirect_to root_path
+    if @place_type.persisted? then
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 end
