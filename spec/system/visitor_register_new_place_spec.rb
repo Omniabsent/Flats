@@ -4,6 +4,7 @@ describe 'Visitor register place' do
   it 'successfully' do
 
     PlaceType.create(name:'Casa')
+    PlaceRegion.create(name:'Sul')
 
     visit root_path
     click_on 'Cadastrar imóvel'
@@ -13,6 +14,7 @@ describe 'Visitor register place' do
     fill_in 'Banheiros', with: '2'
     fill_in 'Diária', with: 200
     select 'Casa', from: "Tipo"
+    select 'Sul', from: "Região"
     check 'Aceita pets'
     check 'Tem garagem'
     click_on 'Enviar'

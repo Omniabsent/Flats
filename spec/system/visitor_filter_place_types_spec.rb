@@ -14,11 +14,13 @@ describe 'Visitor filter places by type' do
   end
 
   it 'successfully' do
-    apartamento = PlaceType.create!(name: 'Apartamento')
-    casa = PlaceType.create!(name: 'Casa')
+    sul = PlaceRegion.create(name:'Sul')
+    norte = PlaceRegion.create(name:'Norte')
+    casa = PlaceType.create(name:'Casa')
     sitio = PlaceType.create!(name: 'Sítio')
-    Place.create({title: "Casa em Curitiba", description: "Casa com vaga em garagem", rooms: 2, bathrooms: 1, pets: true, parking_slot: true, rent: "100", place_type: casa })
-    Place.create({title: "Apartamento em SP", description: "Apartamento mobiliado", rooms: 1,  bathrooms: 1, pets: true, parking_slot: true, rent: "100", place_type: apartamento })
+    apartamento = PlaceType.create(name:'Apartamento')
+    Place.create({title: "Casa em Curitiba", description: "Casa com vaga em garagem", rooms: 2, bathrooms: 1, pets: true, parking_slot: true, rent: "100", place_type: casa, place_region: sul })
+    Place.create({title: "Apartamento em SP", description: "Apartamento mobiliado", rooms: 1,  bathrooms: 1, pets: true, parking_slot: true, rent: "100", place_type: apartamento, place_region: norte })
 
     visit root_path
     click_on "Apartamento"
