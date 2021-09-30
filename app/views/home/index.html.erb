@@ -18,6 +18,16 @@
   </nav>
 </aside>
 
+<aside>
+  <h4>Filtrar por região:</h4>
+  <nav>
+    <% @place_region.each do |pr| %>
+      <%= link_to pr.name, place_region_path(pr.id) %> <br>
+    <%end%>
+    <%= link_to 'Criar nova região', new_place_region_path %>
+  </nav>
+</aside>
+
 <section>
   <h4> Imóveis disponíveis: </h4>
   <% if @places.empty? then %>

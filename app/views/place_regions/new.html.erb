@@ -1,0 +1,11 @@
+<% if @place_region.errors.any? then %>
+  <% @place_region.errors.full_messages.each do |error| %>
+    <%= error %>
+  <% end %>
+<% end %>
+
+<%= form_with(model: PlaceRegion.new) do |pr| %>
+    <%= pr.label :name, 'Nova região: ' %>
+    <%= pr.text_field :name %>
+    <%= pr.submit 'Enviar' %>
+<%end%>

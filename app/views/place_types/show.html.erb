@@ -1,6 +1,6 @@
 <h1>Imóveis do tipo: <%=@place_type.name%></h1>
 </br>
 
-<%@place_type.place.each do |p| %>
-<%=link_to(p.title, place_path(p.id)) %>
+<%@place_type.place.each do |pt| %>
+<%=link_to(pt.title, place_path(pt.id)) %>
 <%end %>

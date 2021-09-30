@@ -1,0 +1,6 @@
+<h1>Imóveis na região: <%=@place_region.name%></h1>
+</br>
+
+<%@place_region.place.each do |pr| %>
+<%=link_to(pr.title, place_path(pr.id)) %>
+<%end%>

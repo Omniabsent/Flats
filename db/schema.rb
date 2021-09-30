@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_28_003642) do
+ActiveRecord::Schema.define(version: 2021_09_30_020757) do
+
+  create_table "place_regions", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "place_types", force: :cascade do |t|
     t.string "name"
@@ -29,8 +35,11 @@ ActiveRecord::Schema.define(version: 2021_09_28_003642) do
     t.boolean "parking_slot"
     t.integer "rent"
     t.integer "place_type_id", null: false
+    t.integer "place_region_id", null: false
+    t.index ["place_region_id"], name: "index_places_on_place_region_id"
     t.index ["place_type_id"], name: "index_places_on_place_type_id"
   end
 
+  add_foreign_key "places", "place_regions"
   add_foreign_key "places", "place_types"
 end

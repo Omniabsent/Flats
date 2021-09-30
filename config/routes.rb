@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   #get "details/details" => "details#details"
   resources :places, only: [:show, :new, :create, :destroy]
   resources :place_types, only: [:show, :new, :create]
+  resources :place_regions, only: [:show, :new, :create]
 end
