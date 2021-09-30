@@ -12,8 +12,9 @@
   <h4>Filtrar por tipo:</h4>
   <nav>
     <% @place_type.each do |pt| %>
-    <%= link_to pt.name, place_type_path(pt.id) %> </br>
+      <%= link_to pt.name, place_type_path(pt.id) %> <br>
     <%end%>
+    <%= link_to 'Criar novo tipo', new_place_type_path %>
   </nav>
 </aside>
 
