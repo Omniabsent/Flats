@@ -5,9 +5,9 @@
   Banheiros: <%=p.bathrooms%>
   Aceita pets: <%= if p.pets == true then "Sim" else "Não" end %>
   Estacionamento: <%= if p.parking_slot == true then "Sim" else "Não" end%>
-  Diária: R$<%=p.rent%>
+  Diária: <%=number_to_currency(p.rent)%>
   Tipo: <%=p.place_type.name%>
-  Região: <%=p.place_region.name%> 
+  Região: <%=p.place_region.name%>
 
 <%= link_to 'Apagar', place_path(@places), method: :delete%>
 <%= link_to "Voltar", root_path %>

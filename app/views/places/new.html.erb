@@ -17,19 +17,19 @@
     <%= f.collection_select :place_region_id, PlaceRegion.all, :id, :name %>
   </div>
   <div>
-    <%= f.label :title, 'Título' %>
+    <%= f.label :title%>
     <%= f.text_field :title %>
   </div>
   <div>
-    <%= f.label :description, 'Descrição' %>
+    <%= f.label :description %>
     <%= f.text_field :description %>
   </div>
   <div>
-    <%= f.label :rooms, 'Quartos' %>
+    <%= f.label :rooms %>
     <%= f.number_field :rooms %>
   </div>
   <div>
-    <%= f.label :bathrooms, 'Banheiros' %>
+    <%= f.label :bathrooms %>
     <%= f.number_field :bathrooms %>
   </div>
   <div>
@@ -37,7 +37,7 @@
     <%= f.number_field :rent %>
   </div>
   <div>
-    <%= f.label :pets, 'Aceita pets' %>
+    <%= f.label :pets %>
     <%= f.check_box :pets %>
   </div>
   <div>

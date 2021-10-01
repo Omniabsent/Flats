@@ -25,7 +25,7 @@ describe 'Visitor register place' do
     expect(page).to have_content('Banheiros: 2')
     expect(page).to have_content('Aceita pets: Sim')
     expect(page).to have_content('Estacionamento: Sim')
-    expect(page).to have_content('Diária: R$200')
+    expect(page).to have_content('Diária: R$ 200,00')
     expect(page).to have_content('Tipo: Casa')
 
   end
