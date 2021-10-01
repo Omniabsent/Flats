@@ -35,11 +35,11 @@ describe 'Visitor register place' do
     click_on 'Cadastrar imóvel'
     click_on 'Enviar'
 
-    expect(page).to have_content('não pode ficar em branco')
-    #expect(page).to have_content('Título não pode ficar em branco')
-    #expect(page).to have_content('Descrição não pode ficar em branco')
-    #expect(page).to have_content('Quartos não pode ficar em branco')
-    #expect(page).to have_content('Banheiros não pode ficar em branco')
-    #expect(page).to have_content('Diária não pode ficar em branco')
+    #expect(page).to have_content('não pode ficar em branco')
+    expect(page).to have_content('Título não pode ficar em branco')
+    expect(page).to have_content('Descrição não pode ficar em branco')
+    expect(page).to have_content('Quartos não pode ficar em branco')
+    expect(page).to have_content('Banheiros não pode ficar em branco')
+    expect(page).to have_content('Aluguel não pode ficar em branco')
   end
 end

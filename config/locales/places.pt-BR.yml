@@ -1,0 +1,14 @@
+---
+pt-BR:
+  activerecord:
+    models:
+      place: "Lugar"
+    attributes:
+      place:
+        title: "Título"
+        description: "Descrição"
+        rooms: "Quartos"
+        bathrooms: "Banheiros"
+        parking_slot: "Vaga de garagem"
+        pets: "Aceita pets"
+        rent: "Aluguel"
