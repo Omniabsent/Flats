@@ -1,0 +1,8 @@
+---
+pt-BR:
+  activerecord:
+    models:
+      place_owner: 'Proprietário'
+    attributes:
+      place_owner:
+        password: 'Senha'

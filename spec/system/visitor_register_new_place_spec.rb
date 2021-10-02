@@ -2,7 +2,8 @@ require 'rails_helper'
 
 describe 'Visitor register place' do
   it 'successfully' do
-
+    place_owner = PlaceOwner.create!(email: 'john@dee.com.br', password: 'asdfasdf')
+    login_as place_owner, scope: :place_owner
     PlaceType.create(name:'Casa')
     PlaceRegion.create(name:'Sul')
 
@@ -31,6 +32,8 @@ describe 'Visitor register place' do
   end
 
   it 'and must fill all fields' do
+    place_owner = PlaceOwner.create!(email: 'john@dee.com.br', password: 'asdfasdf')
+    login_as place_owner, scope: :place_owner
     visit root_path
     click_on 'Cadastrar imóvel'
     click_on 'Enviar'

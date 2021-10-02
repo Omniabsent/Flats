@@ -11,6 +11,17 @@
   </head>
 
   <body>
+    <nav>
+      <% if place_owner_signed_in? %>
+        <p><%= current_place_owner.email %></p>
+        <p><%= link_to 'Logout', destroy_place_owner_session_path, method: :delete %></p>
+        <p><%= link_to '> Cadastrar imóvel', new_place_path %></p>
+      <% else %>
+        <p><%= link_to 'Entrar', new_place_owner_session_path %></p>
+      <% end %>
+    </nav>
+    <p><%= flash[:notice] %></p>
+    <p><%= flash[:alert] %></p>
     <%= yield %>
   </body>
 </html>

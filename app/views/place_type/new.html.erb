@@ -1,0 +1,5 @@
+<%= form_with(model: PlaceType.new) do |pt| %>
+    <%= pt.label :name, 'Nome do tipo: ' %>
+    <%= pt.text_field :name %>
+    <%= pt.submit 'Enviar' %>
+<%end%>
