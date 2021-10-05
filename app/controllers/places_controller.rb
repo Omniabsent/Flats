@@ -1,4 +1,6 @@
 class PlacesController < ApplicationController
+  before_action :authenticate_place_owner!, only: [:new, :create]
+
   def show
     id = params[:id]
     @places = Place.find(id)
@@ -21,5 +23,9 @@ class PlacesController < ApplicationController
     id = params[:id]
     @places = Place.destroy(id)
     redirect_to root_path
+  end
+
+  def my_places
+    @places = current_place_owner.places
   end
 end

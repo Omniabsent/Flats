@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_02_212253) do
+ActiveRecord::Schema.define(version: 2021_10_05_022154) do
 
   create_table "place_owners", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -48,10 +48,13 @@ ActiveRecord::Schema.define(version: 2021_10_02_212253) do
     t.integer "rent"
     t.integer "place_type_id", null: false
     t.integer "place_region_id", null: false
+    t.integer "place_owner_id", null: false
+    t.index ["place_owner_id"], name: "index_places_on_place_owner_id"
     t.index ["place_region_id"], name: "index_places_on_place_region_id"
     t.index ["place_type_id"], name: "index_places_on_place_type_id"
   end
 
+  add_foreign_key "places", "place_owners"
   add_foreign_key "places", "place_regions"
   add_foreign_key "places", "place_types"
 end

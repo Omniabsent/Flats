@@ -1,6 +1,13 @@
 require 'rails_helper'
 
-describe 'Visitor register place' do
+describe 'Place owner register place' do
+  it 'must be signed in' do
+
+    visit root_path
+
+    expect(page).not_to have_link('Cadastrar imóvel')
+  end
+
   it 'successfully' do
     place_owner = PlaceOwner.create!(email: 'john@dee.com.br', password: 'asdfasdf')
     login_as place_owner, scope: :place_owner
