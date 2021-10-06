@@ -28,4 +28,16 @@ describe 'Places owned sees their own places' do
     expect(page).to have_content('Casa em Curitiba')
     expect(page).not_to have_content('Kitnet em SP')
   end
+
+  it 'and has no places yet' do
+    peter = PlaceOwner.create!(email: 'peter@parker.com.br', password: '12345678')
+
+    login_as peter, scope: :place_owner
+    visit root_path
+    click_on 'Meus imóveis'
+
+    expect(page).to have_content('Você ainda não cadastrou nenhum imóvel')
+    expect(page).to have_content('Cadastrar seu primeiro imóvel', new_place_path)
+
+  end
 end

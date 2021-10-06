@@ -9,11 +9,11 @@ describe 'Place owner register place' do
   end
 
   it 'successfully' do
-    place_owner = PlaceOwner.create!(email: 'john@dee.com.br', password: 'asdfasdf')
-    login_as place_owner, scope: :place_owner
+    jane = PlaceOwner.create!(email: 'jane@dee.com.br', password: '12345678')
     PlaceType.create(name:'Casa')
     PlaceRegion.create(name:'Sul')
 
+    login_as jane, scope: :place_owner
     visit root_path
     click_on 'Cadastrar imóvel'
     fill_in 'Título', with: 'Casa em Florianópolis'
@@ -35,6 +35,7 @@ describe 'Place owner register place' do
     expect(page).to have_content('Estacionamento: Sim')
     expect(page).to have_content('Diária: R$ 200,00')
     expect(page).to have_content('Tipo: Casa')
+    expect(page).to have_content('Proprietário: john@dee.com.br')
 
   end
 

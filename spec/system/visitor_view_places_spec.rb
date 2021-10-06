@@ -2,10 +2,11 @@ require 'rails_helper'
 
 describe 'Visitor visit homepage' do
   it  'and view places' do
+    place_owner = PlaceOwner.create!(email: 'john@dee.com.br', password: '12345678')
     PlaceType.create(name:'Casa')
     PlaceRegion.create(name:'Sul')
-    Place.create({title: "Casa em Curitiba", description: "Casa com vaga em garagem", rooms: 2, bathrooms: 1, pets: true, parking_slot: true, rent: "100", place_type_id: 1, place_region_id: 1 })
-    Place.create({title: "Kitnet em SP", description: "Kitnet mobiliada", rooms: 1,  bathrooms: 1, pets: true, parking_slot: true, rent: "100", place_type_id: 1, place_region_id: 1 })
+    Place.create({title: "Casa em Curitiba", description: "Casa com vaga em garagem", rooms: 2, bathrooms: 1, pets: true, parking_slot: true, rent: "100", place_type_id: 1, place_region_id: 1,  place_owner: place_owner })
+    Place.create({title: "Kitnet em SP", description: "Kitnet mobiliada", rooms: 1,  bathrooms: 1, pets: true, parking_slot: true, rent: "100", place_type_id: 1, place_region_id: 1,  place_owner: place_owner })
 
     visit root_path
 
@@ -18,9 +19,10 @@ describe 'Visitor visit homepage' do
   end
 
   it 'and view place details' do
+    place_owner = PlaceOwner.create!(email: 'john@dee.com.br', password: '12345678')
     PlaceType.create(name:'Casa')
     PlaceRegion.create(name:'Sul')
-    Place.create({title: "Casa em Curitiba", description: "Casa com vaga em garagem", rooms: 2, bathrooms: 1, pets: true, parking_slot: true, rent: "100", place_type_id: 1, place_region_id: 1  })
+    Place.create({title: "Casa em Curitiba", description: "Casa com vaga em garagem", rooms: 2, bathrooms: 1, pets: true, parking_slot: true, rent: "100", place_type_id: 1, place_region_id: 1,  place_owner: place_owner  })
 
     visit root_path
     click_on "Casa em Curitiba"
@@ -32,7 +34,7 @@ describe 'Visitor visit homepage' do
     expect(page).to have_text("Aceita pets: Sim")
     expect(page).to have_text("Estacionamento: Sim")
     expect(page).to have_text("Diária: R$ 100,00")
-
+    expect(page).to have_text("Proprietário: john@dee.com.br")
   end
 
 
