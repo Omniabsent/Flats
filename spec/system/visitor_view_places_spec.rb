@@ -47,9 +47,10 @@ describe 'Visitor visit homepage' do
   end
 
   it 'and return to home' do
+    place_owner = PlaceOwner.create!(email: 'john@dee.com.br', password: '12345678')
     PlaceType.create(name:'Casa')
     PlaceRegion.create(name:'Sul')
-    Place.create({title: "Casa em Curitiba", description: "Casa com vaga em garagem", rooms: 2, bathrooms: 1, pets: true, parking_slot: true, rent: "100", place_type_id: 1,  place_region_id: 1 })
+    Place.create({title: "Casa em Curitiba", description: "Casa com vaga em garagem", rooms: 2, bathrooms: 1, pets: true, parking_slot: true, rent: "100", place_type_id: 1,  place_region_id: 1, place_owner_id: 1 })
 
     visit root_path
     click_on "Casa em Curitiba"

@@ -9,7 +9,7 @@ describe 'Place owner register place' do
   end
 
   it 'successfully' do
-    jane = PlaceOwner.create!(email: 'jane@dee.com.br', password: '12345678')
+    jane = PlaceOwner.create!(email: 'jane@doe.com.br', password: '12345678')
     PlaceType.create(name:'Casa')
     PlaceRegion.create(name:'Sul')
 
@@ -35,7 +35,7 @@ describe 'Place owner register place' do
     expect(page).to have_content('Estacionamento: Sim')
     expect(page).to have_content('Diária: R$ 200,00')
     expect(page).to have_content('Tipo: Casa')
-    expect(page).to have_content('Proprietário: john@dee.com.br')
+    expect(page).to have_content('Proprietário: jane@doe.com.br')
 
   end
 

@@ -13,7 +13,7 @@ class PlacesController < ApplicationController
   def create
     @places = Place.new(params.require(:place).permit(:title, :description, :rooms, :bathrooms, :rent, :pets, :parking_slot, :place_type_id, :place_region_id))
     @places.place_owner = current_place_owner
-    if @places.persisted? then
+    if @places.save then
       redirect_to place_path(@places.id)
     else
       render :new

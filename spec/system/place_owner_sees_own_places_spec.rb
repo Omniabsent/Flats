@@ -37,7 +37,7 @@ describe 'Places owned sees their own places' do
     click_on 'Meus imóveis'
 
     expect(page).to have_content('Você ainda não cadastrou nenhum imóvel')
-    expect(page).to have_content('Cadastrar seu primeiro imóvel', new_place_path)
+    expect(page).to have_link('Cadastrar seu primeiro imóvel')
 
   end
 end
