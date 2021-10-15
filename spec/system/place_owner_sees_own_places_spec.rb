@@ -27,6 +27,7 @@ describe 'Places owned sees their own places' do
 
     expect(page).to have_content('Casa em Curitiba')
     expect(page).not_to have_content('Kitnet em SP')
+    expect(page).to have_link('Meus imóveis', href: my_places_places_path)    
   end
 
   it 'and has no places yet' do

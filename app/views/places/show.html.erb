@@ -10,5 +10,16 @@
   Região: <%=p.place_region.name%>
   Proprietário: <%= p.place_owner.email %>
 
+  <h3>Verificar datas</h3>
+  <%= form_with model: @place_reservation do |f| %>
+    <%= f.label :start_date, 'Data inicial' %>
+    <%= f.date_field :start_date %>
+    <%= f.label :end_date, 'Data final' %>
+    <%= f.date_field :end_date %>
+    <%= f.label :guests, 'Quantidade de pessoas' %>
+    <%= f.number_field :guests, step: 1, min: 1 %>
+    <%= f.submit 'Requisitar reserva' %>
+  <% end %>
+
 <%= link_to 'Apagar', place_path(@places), method: :delete%>
 <%= link_to "Voltar", root_path %>

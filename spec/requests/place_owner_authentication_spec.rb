@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Place owned authentication' do
+describe 'Place owner authentication' do
   it 'cannot create place without being loged in' do
     post '/places'
 
