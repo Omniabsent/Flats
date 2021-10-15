@@ -11,7 +11,7 @@
   Proprietário: <%= p.place_owner.email %>
 
   <h3>Verificar datas</h3>
-  <%= form_with model: @place_reservation do |f| %>
+  <%= form_with model: [@place, @place_reservation] do |f| %>
     <%= f.label :start_date, 'Data inicial' %>
     <%= f.date_field :start_date %>
     <%= f.label :end_date, 'Data final' %>
