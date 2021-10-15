@@ -8,7 +8,7 @@ describe 'user books place' do
     PlaceRegion.create(name:'Sul')
     place = Place.create({title: "Casa em Curitiba", description: "Casa com vaga em garagem", rooms: 2, bathrooms: 1, pets: true, parking_slot: true, rent: "100", place_type_id: 1, place_region_id: 1, place_owner: owner })
 
-    login_as user, scope: :user
+    login_as user, scope: :visitor
     visit root_path
     click_on place.title
     fill_in 'Data inicial', with: '06/10/2021'
@@ -16,10 +16,7 @@ describe 'user books place' do
     fill_in 'Quantidade de pessoas', with: '3'
     click_on 'Requisitar reserva'
 
-    expect(page).to have_content('06/10/2021')
-    expect(page).to have_content('17/10/2021')
-    expect(page).to have_content(/3/)
-    expect(page).to have_content('R$ 1100,00')
-    expect(page).to have_content('Reserva requisitada')
+    expect(page).to have_content('Pedido de reserva enviado')
+
   end
 end

@@ -4,6 +4,7 @@ class PlacesController < ApplicationController
   def show
     id = params[:id]
     @places = Place.find(id)
+    @place_reservations = @places.place_reservation.new
   end
 
   def new
