@@ -3,6 +3,6 @@
   Você ainda não cadastrou nenhum imóvel
   <%= link_to 'Cadastrar seu primeiro imóvel', new_place_path %>
 <% end %>
-<% @places.each do |place| %>
-  <%= link_to(place.title) %>
+<% @places.each do |p| %>
+  <%= link_to(p.title, place_path(p.id)) %>
 <%end%>

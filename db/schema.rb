@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_15_043657) do
+ActiveRecord::Schema.define(version: 2021_10_16_054734) do
 
   create_table "place_owners", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 2021_10_15_043657) do
     t.integer "visitor_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "status", default: 0
     t.index ["place_id"], name: "index_place_reservations_on_place_id"
     t.index ["visitor_id"], name: "index_place_reservations_on_visitor_id"
   end

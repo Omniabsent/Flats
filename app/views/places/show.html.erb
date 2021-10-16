@@ -10,7 +10,21 @@
   Região: <%=p.place_region.name%>
   Proprietário: <%= p.place_owner.email %>
 
-  <h3>Verificar datas</h3>
+
+<% if place_owner_signed_in? && @places.place_owner == current_place_owner then %>
+<%= link_to 'Apagar', place_path(@places), method: :delete%>
+  <h3>Reservas</h3>
+  <% @places.place_reservation.each do |pr| %>
+    <h4>Reserva de <%= pr.visitor  %></h4> <!--.email should work, for some reason doesn't -->
+    Data de início: <%= pr.start_date %>
+    Data de final: <%= pr.end_date %>
+    Status: <%= pr.status %>
+    <% if pr.pending? then %>
+      <%= link_to "Aceitar reserva", accept_place_place_reservation_path(pr.place_id), method: :post %>
+    <%end%>
+  <%end%>
+<%elsif visitor_signed_in? %>
+  <h3>Reserve agora:</h3>
   <%= form_with model: [@places, @place_reservations] do |f| %>
     <%= f.label :start_date, 'Data inicial' %>
     <%= f.date_field :start_date %>
@@ -20,6 +34,6 @@
     <%= f.number_field :guests, step: 1, min: 1 %>
     <%= f.submit 'Requisitar reserva' %>
   <% end %>
+<%end%>
 
-<%= link_to 'Apagar', place_path(@places), method: :delete%>
-<%= link_to "Voltar", root_path %>
+<br><%= link_to "Voltar", root_path %>

@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   #get "details/details" => "details#details"
   resources :places, only: [:show, :new, :create, :destroy] do
     get 'my_places', on: :collection
-    resources :place_reservations, only: %i[create show new index]
+    resources :place_reservations, only: %i[create show new index] do
+      post 'accept', on: :member
+    end
   end
 #  resources :place_reservations, only: %i[show]
   resources :place_types, only: [:show, :new, :create]

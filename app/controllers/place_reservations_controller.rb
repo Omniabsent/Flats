@@ -7,6 +7,12 @@ class PlaceReservationsController < ApplicationController
     @place_reservation = PlaceReservation.find(params[:id])
   end
 
+  def accept
+    @place_reservation = PlaceReservation.find(params[:id])
+    @place_reservation.accepted!
+    redirect_to @place_reservation.place
+  end
+
   def create
     @place_reservation = PlaceReservation.new(place_reservation_params)
     @place_reservation.visitor = current_visitor
